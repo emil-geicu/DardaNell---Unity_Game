@@ -7996,7 +7996,7 @@ MonoBehaviour:
   attackCooldown: 2
   colliderDistance: 0.21
   range: 0.99
-  damage: 2
+  damage: 1
   boxCollider: {fileID: 1223459134}
   playerLayer:
     serializedVersion: 2
@@ -11880,7 +11880,7 @@ MonoBehaviour:
   attackCooldown: 2
   colliderDistance: 0.21
   range: 0.99
-  damage: 2
+  damage: 1
   boxCollider: {fileID: 1899821643}
   playerLayer:
     serializedVersion: 2
