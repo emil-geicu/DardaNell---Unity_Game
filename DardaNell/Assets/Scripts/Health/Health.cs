@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,9 +28,26 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("dead");
-                GetComponent<PlayerMovement>().enabled = false;
+             
+                //Player
+                if(GetComponent<PlayerMovement>()!=null)
+                    GetComponent<PlayerMovement>().enabled = false;
+
+
+                //Enemy
+                if(GetComponentInParent<EnemyMovement>()!=null)
+                    GetComponentInParent<EnemyMovement>().enabled = false;
+                if (GetComponent<MeleeEnemy>() != null)
+                    GetComponent<MeleeEnemy>().enabled = false;
+
+            
+              
                 dead = true;
             }
         }
+    }
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }
