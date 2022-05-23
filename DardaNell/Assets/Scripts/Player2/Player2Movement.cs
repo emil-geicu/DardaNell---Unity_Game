@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player2Movement : MonoBehaviour
 {
     [SerializeField]private float speed;
     [SerializeField] private float jumpPower;
@@ -22,29 +22,29 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+
         bool running = false;
         horizontalInput = 0;
 
 
         //Flip player when moving left-right
-        if (Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.RightArrow))
         {
             running = true;
             transform.localScale = Vector3.one;
             horizontalInput = 0.5f;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if(Input.GetKey(KeyCode.LeftArrow))
         {
             running = true;
             transform.localScale = new Vector3(-1, 1, 1);
             horizontalInput = -0.5f;
         }
 
-
-
+        
 
         //Set animator parameters
-        anim.SetBool("run", running );    
+        anim.SetBool("run", running);    
         anim.SetBool("grounded", isGrounded());
 
         if (wallJumpCooldown > 0.2f)
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
                 body.gravityScale = 3;
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.UpArrow))
                 Jump(); 
         }
         else
